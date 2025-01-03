@@ -1,14 +1,12 @@
-
-
 async function SearchPage({
-  searchParams,
-}: {
+    searchParams,
+  }: {
     searchParams: {
-        query: string;
+      query: string;
     };
-}) {
-    const { query } = await searchParams;
-    return <div>SearchPage</div>
-}
-
-export default SearchPage
+  }) {
+    return <div>SearchPage</div>;
+  }
+  
+  export default SearchPage;
+  

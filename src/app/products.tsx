@@ -71,12 +71,12 @@ const products: Product[] = [
 ];
 
 const Products = () => {
-  let cart: Product[] = [];
+  const cart: Product[] = [];  // Use const instead of let
 
   const addToCart = (product: Product) => {
     cart.push(product);
     alert(`${product.name} has been added to your cart!`);
-    console.log(cart);  
+    console.log(cart);
   };
 
   return (

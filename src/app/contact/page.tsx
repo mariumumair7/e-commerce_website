@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { ClerkLoaded, SignedIn, UserButton } from "@clerk/nextjs";
 import { groq } from "next-sanity";
-import { client } from "../../sanity/lib/client"; // Ensure correct import
+import { client } from "../../sanity/lib/client"; 
 import { NextPage } from "next";
 
 interface ContactInfo {
@@ -41,7 +41,7 @@ const ContactPage: NextPage = () => {
       console.log("Sending message:", formData);
       setResponseMessage("Thank you for your message. We will get back to you soon!");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
+    } catch {
       setResponseMessage("Oops! Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
