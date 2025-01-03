@@ -1,6 +1,9 @@
-async function SearchPage() {
-    return <div>SearchPage</div>;
-  }
-  
-  export default SearchPage;
-  
+import React from 'react'
+
+const searchpage = () => {
+  return (
+    <div>search</div>
+  )
+}
+
+export default searchpage;
