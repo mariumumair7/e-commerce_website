@@ -1,7 +1,9 @@
 "use client";
 
-import React from "react";
-import ProductCard from "@/components/ui/productcard";
+import React, { useState } from "react";
+import ProductCard from "@/components/ui/productcard"; // Assuming this component is in your UI folder
+import { ClerkLoaded, SignedIn, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -17,7 +19,7 @@ const products: Product[] = [
     name: "Stylish Denim Jacket",
     description: "A cool and stylish denim jacket for all seasons.",
     price: 4999,
-    image: "/image1.jpeg", // Ensure the path is correct, or place image in public folder
+    image: "/image1.jpeg",
   },
   {
     id: 2,
@@ -70,29 +72,29 @@ const products: Product[] = [
   },
 ];
 
-const Products = () => {
-  let cart: Product[] = [];
+const BestDealsPage = () => {
+  const [cart, setCart] = useState<Product[]>([]);
 
   const addToCart = (product: Product) => {
-    cart.push(product);
+    setCart((prev) => [...prev, product]);
     alert(`${product.name} has been added to your cart!`);
-    console.log(cart);  
   };
 
   return (
     <div className="container mx-auto px-6 py-8">
+      {/* Header Section */}
       <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">
-        Our Latest Collection
+        Best Deals for You!
       </h1>
 
-      {/* Products Grid */}
+      {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} addToCart={addToCart} />
         ))}
       </div>
 
-      {/* Cart Summary */}
+      {/* Cart Summary Section */}
       <div className="mt-10 bg-gray-100 p-4 rounded-lg shadow-md">
         <h2 className="text-xl font-bold mb-4">Cart Summary</h2>
         {cart.length === 0 ? (
@@ -102,14 +104,30 @@ const Products = () => {
             {cart.map((item, index) => (
               <li key={index} className="flex justify-between border-b py-2">
                 <span>{item.name}</span>
-                <span>Rs {item.price}</span>
+                <span>₹ {item.price}</span>
               </li>
             ))}
           </ul>
         )}
+        <div className="mt-4">
+          <Link href="/checkout" className="w-full mt-2 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 text-center rounded-md">
+            Proceed to Checkout
+          </Link>
+        </div>
+      </div>
+
+      {/* Clerk User Authentication */}
+      <div className="mt-8">
+        <ClerkLoaded>
+          <SignedIn>
+            <div className="flex justify-center items-center">
+              <UserButton />
+            </div>
+          </SignedIn>
+        </ClerkLoaded>
       </div>
     </div>
   );
 };
 
-export default Products;
+export default BestDealsPage;

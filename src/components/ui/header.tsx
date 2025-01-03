@@ -1,20 +1,31 @@
+"use client";
+
+import React from "react";
 import { SignedIn, UserButton, useUser, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { PackageIcon, TrolleyIcon } from "@sanity/icons";
 import { ClerkLoaded } from "@clerk/nextjs";
 
 function Header() {
-  const { user } = useUser();
+  const { user, isLoaded } = useUser();
 
   const createClerkPassKey = () => {
     console.log("Creating passkey...");
   };
 
+  if (!isLoaded) {
+    // Render a loader or nothing while user data is loading
+    return <div>Loading...</div>;
+  }
+
   return (
-    <header className="flex flex-col md:flex-row justify-between items-center px-6 py-6 bg-gradient-to-r from-blue-500 to-teal-500 shadow-xl rounded-lg">
+    <header className="flex flex-col md:flex-row justify-between items-center px-6 py-6 bg-gradient-to-r from-blue-500 to-teal-500 shadow-xl rounded-lg sticky top-0 z-50">
       {/* Logo */}
       <div className="mb-4 md:mb-0">
-        <Link href="/" className="text-3xl font-extrabold text-white hover:text-teal-100 transition-colors duration-300">
+        <Link
+          href="/"
+          className="text-3xl font-extrabold text-white hover:text-teal-100 transition-colors duration-300"
+        >
           StyleHaven
         </Link>
       </div>
@@ -52,13 +63,22 @@ function Header() {
 
       {/* Navigation Links */}
       <nav className="flex space-x-6 mb-4 md:mb-0">
-        <Link href="/about" className="text-lg text-white hover:text-teal-100 transition-colors duration-300">
+        <Link
+          href="/about"
+          className="text-lg text-white hover:text-teal-100 transition-colors duration-300"
+        >
           About
         </Link>
-        <Link href="/deals" className="text-lg text-white hover:text-teal-100 transition-colors duration-300">
+        <Link
+          href="/deals"
+          className="text-lg text-white hover:text-teal-100 transition-colors duration-300"
+        >
           Deals
         </Link>
-        <Link href="/contact" className="text-lg text-white hover:text-teal-100 transition-colors duration-300">
+        <Link
+          href="/contact"
+          className="text-lg text-white hover:text-teal-100 transition-colors duration-300"
+        >
           Contact
         </Link>
       </nav>
@@ -90,7 +110,7 @@ function Header() {
             </div>
           )}
 
-          {user?.passkeys.length === 0 && (
+          {user?.passkeys?.length === 0 && (
             <button
               onClick={createClerkPassKey}
               className="bg-white hover:bg-blue-700 hover:text-white animate-pulse text-blue-500 font-bold py-2 px-4 rounded border-blue-300 border"

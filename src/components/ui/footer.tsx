@@ -1,81 +1,93 @@
-import React from 'react';
-import { FacebookIcon, InstagramIcon, TwitterIcon, LinkedinIcon } from '@shadcn/icons';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Footer Top Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+    <footer className="bg-blue-800 text-white py-12">
+
+        {/* Footer Grid Sections */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          {/* Cities */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Company</h3>
+            <h3 className="text-2xl font-semibold mb-4">Our Locations</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="/about" target="_blank" className="hover:text-gray-400">About Us</a>
-              </li>
-              <li>
-                <a href="/services" target="_blank" className="hover:text-gray-400">Services</a>
-              </li>
-              <li>
-                <a href="/blog" target="_blank" className="hover:text-gray-400">Blog</a>
-              </li>
-              <li>
-                <a href="/careers" target="_blank" className="hover:text-gray-400">Careers</a>
-              </li>
+              <li>Karachi</li>
+              <li>Islamabad</li>
+              <li>Lahore</li>
+              <li>Rawalpindi</li>
+              <li>Hyderabad</li>
             </ul>
           </div>
 
+          {/* Services */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-600"
-              >
-                <FacebookIcon className="w-6 h-6" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-400"
-              >
-                <TwitterIcon className="w-6 h-6" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-pink-500"
-              >
-                <InstagramIcon className="w-6 h-6" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-700"
-              >
-                <LinkedinIcon className="w-6 h-6" />
-              </a>
-            </div>
+            <h3 className="text-2xl font-semibold mb-4">Our Services</h3>
+            <ul className="space-y-2">
+              <li>Brand Clothing</li>
+              <li>Brand Shoes</li>
+              <li>Online Ordering</li>
+              <li>Brand jackets</li>
+              <li>Customer Support</li>
+            </ul>
           </div>
 
+          {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Contact</h3>
-            <p className="text-gray-400">1234 Street Name</p>
-            <p className="text-gray-400">City, Country 56789</p>
-            <p className="text-gray-400">Email: contact@example.com</p>
-            <p className="text-gray-400">Phone: (123) 456-7890</p>
+            <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
+            <ul className="space-y-2">
+              <li>Email: support@crispncrunch.com</li>
+              <li>Phone: +92 (300) 123-4567</li>
+              <li>Address: 123 Street Line Area DHA, Karachi</li>
+              <li>Business Hours: Mon-Sun</li>
+            </ul>
           </div>
         </div>
 
-        {/* Footer Bottom Section */}
-        <div className="mt-12 border-t pt-6 text-center text-gray-400">
-          <p>&copy; 2025 StyleHaven. All rights reserved.</p>
+        {/* Additional Information */}
+        <div className="mt-12 text-sm">
+          <p>
+            By using our website, you agree to our{' '}
+            <Link href="/terms" className="hover:underline">
+              Terms of Service
+            </Link>{' '}
+            and{' '}
+            <Link href="/privacy" className="hover:underline">
+              Privacy Policy
+            </Link>.
+          </p>
         </div>
+        <div className="container mx-auto text-center">
+        {/* Main Branding */}
+        <h2 className="text-4xl font-bold mb-4">StyleHaven</h2>
+        <p className="text-lg mb-6">&copy; {new Date().getFullYear()} StyleHaven. All Rights Reserved.</p>
+
+        {/* Social Links */}
+        <div className="mt-6 flex justify-center gap-8 text-lg">
+          <Link
+            href="https://facebook.com"
+            className="text-white hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </Link>
+          <Link
+            href="https://instagram.com"
+            className="text-white hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </Link>
+          <Link
+            href="https://twitter.com"
+            className="text-white hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter
+          </Link>
+        </div>
+
       </div>
     </footer>
   );

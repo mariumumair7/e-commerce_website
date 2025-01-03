@@ -15,14 +15,7 @@ const AboutPage = () => {
         {/* Content Section */}
         <section className="space-y-6">
           <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-6 md:mb-0">
-              <img
-                src="/images/about-image.jpg" // Replace with your image path
-                alt="About Image"
-                className="w-full h-64 object-cover rounded-lg shadow-md"
-              />
-            </div>
-            <div className="md:w-1/2 md:pl-8">
+            <div >
               <h2 className="text-3xl font-semibold text-gray-800">Our Mission</h2>
               <p className="text-gray-600 mt-4">
                 Our mission is to provide the best service and products to our customers. We strive to innovate and deliver high-quality experiences that exceed expectations.
@@ -30,7 +23,7 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* More information section */}
+          {/* More Information Section */}
           <div>
             <h2 className="text-3xl font-semibold text-gray-800">What We Do</h2>
             <p className="text-gray-600 mt-4">
@@ -49,11 +42,6 @@ const AboutPage = () => {
             </ul>
           </div>
         </section>
-
-        {/* Footer Section */}
-        <footer className="mt-12 text-center text-gray-600">
-          <p>&copy; 2025 Your Company Name. All rights reserved.</p>
-        </footer>
       </div>
     </div>
   );
