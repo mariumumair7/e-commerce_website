@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -40,18 +38,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-NEXT_PUBLIC_SANITY_DATASET="production"
-NEXT_PUBLIC_SANITY_PROJECT_ID="kbvf076d"
-NEXT_PUBLIC_BASE_URL="http://localhost:3000"
-NEXT_PUBLIC_SANITY_API_TOKEN=skyJEkalKCsPF3y7Hy3iXfMAf6K7c3yxNRf1ArabfWUOE6zuEbAimraji2nQwNbX5N3z9Ou3SNL7zxcVeEiMdwkc1raxkkpabvmF08GE8TdGo2LpAFwYiWDRSQKCHDyWfNEligZIGrvsnZOU1l4DjJR0f2WlEwu84NYmih1HKzP137ougOfw
+# logs
+logs/*
+**/*.log
+!important_log.log
 
-
-SANITY_STUDIO_PROJECT_ID="kbvf076d"
-SANITY_STUDIO_DATASET="production"
-
-
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_ZnVubnktYmVuZ2FsLTQyLmNsZXJrLmFjY291bnRzLmRldiQ
-CLERK_SECRET_KEY=pk_test_ZnVubnktYmVuZ2FsLTQyLmNsZXJrLmFjY291bnRzLmRldiQ
-
-
-
+# Other secrets
+secret.txt
