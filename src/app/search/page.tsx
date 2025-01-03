@@ -1,10 +1,4 @@
-async function SearchPage({
-    searchParams,
-  }: {
-    searchParams: {
-      query: string;
-    };
-  }) {
+async function SearchPage() {
     return <div>SearchPage</div>;
   }
   
